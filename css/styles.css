@@ -1,0 +1,235 @@
+/* ================================================================
+   UPSC Prelims 2026 — Intelligence Dossier
+   Custom styles layered on top of Tailwind
+================================================================== */
+
+[x-cloak] { display: none !important; }
+
+html, body { height: 100%; }
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----- Scrollbars ----- */
+.sidebar-scroll::-webkit-scrollbar { width: 6px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(127,127,127,.25); border-radius: 6px; }
+.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.dark .sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(200,200,200,.15); }
+
+::selection { background: #ffd49e; color: #3c1404; }
+.dark ::selection { background: #f8720b; color: #fff; }
+
+/* ----- Hero gradient mesh ----- */
+.hero-mesh {
+  background-image:
+    radial-gradient(at 12% 18%, rgba(248,114,11,0.15) 0px, transparent 50%),
+    radial-gradient(at 88% 30%, rgba(14,165,233,0.10) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(255,179,91,0.10) 0px, transparent 55%);
+}
+.dark .hero-mesh {
+  background-image:
+    radial-gradient(at 12% 18%, rgba(248,114,11,0.18) 0px, transparent 50%),
+    radial-gradient(at 88% 30%, rgba(14,165,233,0.12) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(255,142,31,0.10) 0px, transparent 55%);
+}
+
+/* ----- Card shells ----- */
+.card {
+  background: white;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.04);
+}
+.dark .card {
+  background: #1c2029;
+  border-color: #2b303a;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.25);
+}
+.card-hover { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.card-hover:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(15,23,42,0.08); border-color: #d5d9e0; }
+.dark .card-hover:hover { border-color: #3c424d; box-shadow: 0 12px 28px rgba(0,0,0,0.45); }
+
+/* ----- Stat callouts ----- */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; }
+
+.kpi {
+  background: white;
+  border: 1px solid #eceef2;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+.dark .kpi { background: #1c2029; border-color: #2b303a; }
+.kpi-label { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: #7a8290; font-weight: 700; }
+.kpi-value { font-size: 1.6rem; font-weight: 800; line-height: 1.1; margin-top: .25rem; color: #10131a; }
+.dark .kpi-value { color: #f6f7f9; }
+.kpi-sub { font-size: .72rem; color: #7a8290; margin-top: .15rem; }
+.kpi-icon { position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; opacity: .35; }
+
+/* ----- Badge tints ----- */
+.tier-A { background: linear-gradient(135deg,#fee2e2,#fecaca); color:#991b1b; }
+.dark .tier-A { background: linear-gradient(135deg,#7f1d1d80,#9f1239aa); color:#fecaca; }
+.tier-B { background: linear-gradient(135deg,#ffedd5,#fed7aa); color:#9a3412; }
+.dark .tier-B { background: linear-gradient(135deg,#7c2d1280,#9a3412aa); color:#fed7aa; }
+.tier-C { background: linear-gradient(135deg,#fef3c7,#fde68a); color:#854d0e; }
+.dark .tier-C { background: linear-gradient(135deg,#713f1280,#854d0eaa); color:#fde68a; }
+
+/* Importance dot */
+.imp { display:inline-block; width:9px; height:9px; border-radius:50%; vertical-align:middle; margin-right:.4rem; }
+.imp-red    { background:#dc2626; box-shadow:0 0 0 2px rgba(220,38,38,.15); }
+.imp-orange { background:#ea580c; box-shadow:0 0 0 2px rgba(234,88,12,.12); }
+.imp-yellow { background:#ca8a04; box-shadow:0 0 0 2px rgba(202,138,4,.12); }
+.imp-green  { background:#16a34a; box-shadow:0 0 0 2px rgba(22,163,74,.12); }
+
+/* ----- Heatmap cells ----- */
+.heat-cell {
+  display:grid; place-items:center;
+  font-weight: 700; font-size: .82rem;
+  border-radius: 8px;
+  height: 38px; min-width: 44px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----- Tables ----- */
+.dossier-table { width: 100%; font-size: .85rem; border-collapse: separate; border-spacing: 0; }
+.dossier-table thead th {
+  text-align: left; padding: .55rem .8rem; font-weight: 600;
+  color: #535b69; background: #f6f7f9; border-bottom: 1px solid #eceef2;
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .06em;
+  position: sticky; top: 0; z-index: 1;
+}
+.dark .dossier-table thead th { color:#aab1bd; background:#10131a; border-color:#2b303a; }
+.dossier-table tbody td { padding: .65rem .8rem; border-bottom: 1px solid #eceef2; vertical-align: top; }
+.dark .dossier-table tbody td { border-color:#2b303a; }
+.dossier-table tbody tr:hover td { background: #fafaf9; }
+.dark .dossier-table tbody tr:hover td { background: #15191f; }
+
+.table-wrap { border: 1px solid #eceef2; border-radius: 12px; overflow: auto; background: white; }
+.dark .table-wrap { background: #1c2029; border-color: #2b303a; }
+
+/* ----- Prose tweaks for cheat-sheet long form ----- */
+.prose-dossier { max-width: none; line-height: 1.7; font-size: .95rem; }
+.prose-dossier h2 { font-size: 1.45rem; font-weight: 800; margin: 2rem 0 .8rem; letter-spacing: -0.01em; }
+.prose-dossier h3 { font-size: 1.15rem; font-weight: 700; margin: 1.6rem 0 .6rem; color: #2b303a; }
+.dark .prose-dossier h3 { color: #eceef2; }
+.prose-dossier h4 { font-size: 1.0rem; font-weight: 700; margin: 1.2rem 0 .4rem; color: #3c424d; }
+.dark .prose-dossier h4 { color: #d5d9e0; }
+.prose-dossier ul { list-style: disc; padding-left: 1.4rem; margin: .6rem 0; }
+.prose-dossier ol { list-style: decimal; padding-left: 1.4rem; margin: .6rem 0; }
+.prose-dossier li { margin: .35rem 0; }
+.prose-dossier strong { color: #10131a; }
+.dark .prose-dossier strong { color: #fafaf9; }
+.prose-dossier code {
+  font-family: 'JetBrains Mono', monospace; font-size: .8em;
+  background: #fff7ec; color: #86330e; padding: 1px 6px; border-radius: 4px;
+}
+.dark .prose-dossier code { background:#3c1404; color:#ffd49e; }
+.prose-dossier blockquote {
+  border-left: 3px solid #f8720b; padding: .5rem 1rem;
+  background: #fff7ec; color:#86330e; margin: 1rem 0; border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+.dark .prose-dossier blockquote { background:#3c140455; color:#ffd49e; }
+
+/* ----- Pill button ----- */
+.pill {
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding: .25rem .65rem; border-radius:999px; font-size:.7rem; font-weight:700;
+  background:#eceef2; color:#3c424d;
+  letter-spacing:.02em;
+}
+.dark .pill { background:#2b303a; color:#d5d9e0; }
+.pill-brand { background:#ffecd0; color:#86330e; }
+.dark .pill-brand { background:#3c1404; color:#ffd49e; }
+.pill-success { background:#d1fae5; color:#065f46; }
+.dark .pill-success { background:#064e3b40; color:#6ee7b7; }
+.pill-danger { background:#fee2e2; color:#991b1b; }
+.dark .pill-danger { background:#7f1d1d40; color:#fecaca; }
+.pill-warn { background:#fef3c7; color:#854d0e; }
+.dark .pill-warn { background:#713f1240; color:#fde68a; }
+.pill-info { background:#dbeafe; color:#1e40af; }
+.dark .pill-info { background:#1e3a8a40; color:#bfdbfe; }
+
+/* ----- Accordion ----- */
+.accordion-trigger {
+  width:100%; text-align:left; padding: .9rem 1rem; display:flex; align-items:center; gap:.6rem;
+  font-weight:600; transition: background .15s;
+}
+.accordion-trigger:hover { background:#f6f7f9; }
+.dark .accordion-trigger:hover { background:#15191f; }
+.accordion-trigger .chev { transition: transform .25s; flex-shrink:0; }
+.accordion-open .chev { transform: rotate(90deg); }
+details[open] > summary .chev { transform: rotate(90deg); }
+summary { list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::marker { content: ''; }
+.accordion-body { padding: 0 1rem 1rem; }
+
+/* ----- MCQ option states ----- */
+.mcq-option {
+  display:flex; align-items:flex-start; gap:.75rem; padding: .8rem 1rem;
+  border:1px solid #eceef2; border-radius:10px; cursor:pointer;
+  transition: all .15s; background:white; text-align:left; width:100%;
+}
+.dark .mcq-option { background:#1c2029; border-color:#2b303a; color:#eceef2; }
+.mcq-option:hover { border-color:#aab1bd; }
+.dark .mcq-option:hover { border-color:#535b69; }
+.mcq-option .opt-letter {
+  width:28px; height:28px; border-radius:8px; background:#eceef2; color:#3c424d;
+  display:grid; place-items:center; font-weight:700; font-size:.8rem; flex-shrink:0;
+}
+.dark .mcq-option .opt-letter { background:#2b303a; color:#d5d9e0; }
+.mcq-option.selected { border-color:#f8720b; background:#fff7ec; }
+.dark .mcq-option.selected { background:#3c140455; border-color:#f8720b; }
+.mcq-option.selected .opt-letter { background:#f8720b; color:white; }
+.mcq-option.correct { border-color:#16a34a; background:#f0fdf4; }
+.dark .mcq-option.correct { background:#052e1655; border-color:#16a34a; }
+.mcq-option.correct .opt-letter { background:#16a34a; color:white; }
+.mcq-option.incorrect { border-color:#dc2626; background:#fef2f2; }
+.dark .mcq-option.incorrect { background:#450a0a55; border-color:#dc2626; }
+.mcq-option.incorrect .opt-letter { background:#dc2626; color:white; }
+
+/* ----- Subject color tokens ----- */
+:root {
+  --c-polity: #6366f1;
+  --c-economy: #10b981;
+  --c-environment: #14b8a6;
+  --c-geography: #f59e0b;
+  --c-history: #b45309;
+  --c-art: #ec4899;
+  --c-st: #0ea5e9;
+  --c-ir: #8b5cf6;
+  --c-social: #64748b;
+}
+.subj-tag { display:inline-flex; align-items:center; gap:.35rem; font-size:.7rem; font-weight:700; padding:.18rem .55rem; border-radius:999px; }
+.subj-Polity     { background:rgba(99,102,241,.12); color:#4338ca; }
+.subj-Economy    { background:rgba(16,185,129,.12); color:#047857; }
+.subj-Environment{ background:rgba(20,184,166,.12); color:#0f766e; }
+.subj-Geography  { background:rgba(245,158,11,.12); color:#92400e; }
+.subj-History    { background:rgba(180,83,9,.12);   color:#7c2d12; }
+.subj-Art        { background:rgba(236,72,153,.12); color:#9d174d; }
+.subj-S\&T       { background:rgba(14,165,233,.12); color:#0369a1; }
+.subj-IR         { background:rgba(139,92,246,.12); color:#5b21b6; }
+.subj-Social     { background:rgba(100,116,139,.12); color:#334155; }
+
+.dark .subj-Polity     { background:rgba(99,102,241,.18); color:#a5b4fc; }
+.dark .subj-Economy    { background:rgba(16,185,129,.18); color:#6ee7b7; }
+.dark .subj-Environment{ background:rgba(20,184,166,.18); color:#5eead4; }
+.dark .subj-Geography  { background:rgba(245,158,11,.18); color:#fcd34d; }
+.dark .subj-History    { background:rgba(180,83,9,.22);   color:#fdba74; }
+.dark .subj-Art        { background:rgba(236,72,153,.18); color:#f9a8d4; }
+.dark .subj-S\&T       { background:rgba(14,165,233,.18); color:#7dd3fc; }
+.dark .subj-IR         { background:rgba(139,92,246,.18); color:#c4b5fd; }
+.dark .subj-Social     { background:rgba(100,116,139,.22); color:#cbd5e1; }
+
+/* ----- Animation ----- */
+.fade-in { animation: fade-in .35s ease-out both; }
+@keyframes fade-in { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
+
+/* responsive helpers */
+@media (max-width: 640px) {
+  .kpi-value { font-size: 1.35rem; }
+}
