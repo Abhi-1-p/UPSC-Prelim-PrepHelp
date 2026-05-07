@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"D:/Anu/UPSC site\" 2>&1; echo \"---\"; ls \"C:/Users/abhip/Downloads/upsc_prelims_2026_dossier.md\" 2>&1)"
+    ]
+  }
+}
